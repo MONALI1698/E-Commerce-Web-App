@@ -28,7 +28,8 @@
         <a class="nav-link" href="#">List an item</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Messages</a>
+        <a class="nav-link" href="/messages">Messages</a>
+       
       </li>
     </ul>
      <form class="form-inline my-2 my-lg-0">
@@ -57,7 +58,12 @@
   </div>
 </nav>
   <body>
-  
+
+  <%if flash.key?(:error) %>
+  <div class="alert alert-danger" role = "alert"
+   <center><%= flash[:error] %></center>
+   </div>
+  <%end%>
     <main class="container">
      
       <%= yield %>
