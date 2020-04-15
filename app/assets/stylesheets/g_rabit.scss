@@ -1,0 +1,65 @@
+// Place all the styles related to the GRabit controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+$white: white;
+$black: black;
+$blue: blue;
+
+.navbar {
+        margin-bottom: 0;
+       
+        
+       
+       
+}
+
+.nav.navbar-nav.navbar-right li a {
+    color: rgba(16, 17, 16, 0.931);
+}
+
+.nav.navbar-nav li a {
+    color: black;
+}
+.navbar-brand li a{
+    color:black;
+
+}
+
+p {
+    color: rgb(25, 0, 253);
+    font-family: courier;
+  font-size: 150%;
+  
+  }
+
+  body {
+    text-align: center;
+    background-image:image-url("/assets/background.jpeg");
+    background-repeat: no-repeat;
+    background-size: 150%;
+  }
+  
+  #search {
+    width: 400px;
+    margin:  0px 100px 150px 350px;
+    text-align: center;
+    display: inline-block;
+  }
+  
+  #search_text {
+    width: 350px;
+    padding: 15px 0 15px 20px;
+    font-size: 16px;
+    font-family: Montserrat, sans-serif;
+    
+    height: 52px;
+    margin-right: 10;
+    color: black;
+    outline: black;
+    background: white;
+    float: center;
+    box-sizing: border-box;
+    
+   
+  }
