@@ -58,7 +58,12 @@
   </div>
 </nav>
   <body>
-  
+
+  <%if flash.key?(:error) %>
+  <div class="alert alert-danger" role = "alert"
+   <center><%= flash[:error] %></center>
+   </div>
+  <%end%>
     <main class="container">
      
       <%= yield %>
