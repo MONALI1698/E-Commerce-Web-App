@@ -4,5 +4,18 @@ Rails.application.routes.draw do
   get 'messages', to: 'messages#messages', as: 'messages'
   devise_for :users
   get 'user_profile',to: 'g_rabit#user_profile', as: 'user_profile'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+
+  #routes for item model
+  get 'items', to:'items#index', as:'items' #index
+  get 'items/new', to: 'items#new', as: 'new_item' # new
+  post 'items', to: 'items#create' # create
+  get 'items/:id/edit', to: 'items#edit', as: 'edit_item' # edit
+  patch 'items/:id', to: 'items#update' # update (as needed)
+  put 'items/:id', to: 'items#update' # update (full replacement)
+  get 'items/:id', to:'items#show', as:'item' #show
+  delete 'items/:id', to: 'items#destroy' # destroy
+
+
+
 end
