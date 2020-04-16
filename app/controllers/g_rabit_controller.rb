@@ -6,8 +6,16 @@ class GRabitController < ApplicationController
 
   def user_profile
     respond_to do|format|
-      format.html{render:user_profile}
-  end
+      format.html do
+        if(user_signed_in?)
+          render :user_profile
+      
+        else
+          flash[:error] = "You must be signed in to access your user profile."
+          redirect_to "/users/sign_in"
+        end
+      end
+    end
   end
 end
 end
