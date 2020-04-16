@@ -1,1 +1,12 @@
-<h1> This page will list all of the users messages</h1>
+<br/><center><h2><%= signed_in_user.name%>'s Messages</h2></center>
+
+<ul class="list-group">
+    <% users= [] %>
+  <% signed_in_user.messages.each do |message| %>
+    <%if !users.include?(message.sender) && message.sender != current_user.user_name%>
+        <% users.push(message.sender) %>
+        <li class="list-group-item"> <%= link_to message.sender, messages_path() + "/" + message.sender %></li>
+    <%end%>
+
+  <%end%>
+</ul>
