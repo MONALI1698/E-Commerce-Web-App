@@ -9,6 +9,27 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   </head>
+
+ <script>
+    function navSearchForItem(){
+      var search = document.getElementById("nav_search_text").value;
+
+      location.replace(window.location.origin + "/items/search_results/"+ search);
+
+}
+
+    function navEnterKeyPressed(e){
+        if(e.keyCode == 13 )
+        {
+          
+            var search = document.getElementById("nav_search_text").value;
+
+            location.replace(window.location.origin + "/items/search_results/"+ search);
+        }
+
+}
+</script>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary menu">
   <a class="navbar-brand" href="/home">gRabit </a>
  
@@ -26,17 +47,17 @@
         <a class="nav-link " href="/user_profile">User Profile</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="/items">List an item</a>
+        <a class="nav-link " href="/items">List Item</a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="/messages">Messages</a>
        
       </li>
     </ul>
-     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      <%=link_to "🔎"%>
-    </form>
+     <div class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" id= "nav_search_text" placeholder="Search" aria-label="Search" onKeyPress= "navEnterKeyPress(event)" />
+      <a onClick= "navSearchForItem()"> 🔎</a>
+    </div>
      
      <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>

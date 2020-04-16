@@ -18,6 +18,7 @@ u1.password_confirmation = 'gamer123'
 #u1.encrypted_password = '$2a$11$1wyHotsKELPEAJjSO7LJ.eyPRCwV4d.QBiG9TnT2W/SVhBb5s4Mwegame'
 u1.name= 'Austin Smith'
 u1.user_name="austinsmith845"
+u1.is_seller = true
 
 u1.save!
 

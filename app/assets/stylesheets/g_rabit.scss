@@ -45,6 +45,17 @@ p {
   
   }
 
+  search_button{
+
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+
+  }
+
   body {
     text-align: center;
     background-image:image-url("/assets/background.jpeg");
