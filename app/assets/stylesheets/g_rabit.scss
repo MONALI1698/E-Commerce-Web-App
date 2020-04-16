@@ -26,6 +26,18 @@ $blue: blue;
 
 }
 
+.menu > .navbar-brand{
+  font-size: 20px;
+  font-weight: bold;
+  
+}
+
+.item > .navbar-nav > .nav-item > .nav-link{
+  font-size: 18px;
+  color:black;
+  font-weight: bold;
+
+}
 p {
     color: rgb(25, 0, 253);
     font-family: courier;
