@@ -10,6 +10,9 @@
     <%= link_to 'Edit', edit_item_path(item), class:"btn btn-primary" %>
     <%= link_to 'Delete', item_path(item),method: :delete, class:"btn btn-danger" %>
     <% end %>
+    <% user = User.find_by_id(item.user_id) %>
+    <%= link_to 'Message Seller', message_board_path(user.user_name),method: :get, class:"btn btn-warning" %>    
+ 
 
 
 

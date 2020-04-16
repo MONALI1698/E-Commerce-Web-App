@@ -1,15 +1,33 @@
 <h1 class="text-center">Welcome to gRabit!</h1>
- <style>
 
-</style>
+<script>
+    function searchForItem(){
+        var search = document.getElementById("search_text").value;
+
+        location.replace("items/search_results/"+ search);
+
+}
+
+    function enterKeyPressed(e){
+        if(e.keyCode == 13 )
+        {
+            var search = document.getElementById("search_text").value;
+
+            location.replace("items/search_results/"+ search);
+        }
+
+}
+</script>
 
 <%= image_tag "logo.png", width: 300, class: 'd-block mx-auto' %><br /></b>
 <p class="text-center"><b> To begin,  Search for an item </b>
 <li id="search">
-    <form action="" method="get">
-    <input type="text" name="search_text" id="search_text" placeholder="Search"/>
-    <%=link_to "🔎"%>
-    </form>
+  
+    <input type="text" name="search_text" id="search_text" placeholder="Search" onKeyPress = "enterKeyPressed(event)"/>
+    <button onclick = "searchForItem()" onKeyPress= "searchForItem()"> 🔎 </button>
+
+    
+
 </li>
  </p>
 

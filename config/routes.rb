@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get 'items/:id', to:'items#show', as:'item' #show
   delete 'items/:id', to: 'items#destroy' # destroy
 
+  get 'items/search_results/:id', to: 'items#search', as: 'search'
+
 
 
 end
