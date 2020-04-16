@@ -7,6 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+=======
+
+
+
 u1 = User.new
 u1.email = 'austinsmith845@example.com'
 u1.password='gamer123'
@@ -34,5 +38,21 @@ m1 = Message.create!(
     content: 'This is a test message',
     recipient: 'austinsmith845',
     sender: 'wsmith845',
+)
+
+i1= Item.create!(
+    creator: u1,
+    name: 'AcerLaptop',
+    description: '8th Gen 4GB DDR4 RAM',
+    price: '1200',
+    category: 'Electronics'
+)
+
+i2 = Item.create!(
+    creator: u2,
+    name: 'HP Laptop',
+    description: '8th Gen 8GB DDR4 RAM',
+    price: '1300',
+    category: 'Electronics'
 )
 
