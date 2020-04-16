@@ -1,6 +1,10 @@
 class ItemsController < ApplicationController
+    before_action :authenticate_user!
+    before_action :require_permission, only: [:edit, :update, :destroy]
+
+
     def index
-        items = Item.all
+        items = current_user.items
         respond_to do |format|
             format.html { render:index, locals: { items:items} }
         end
@@ -14,7 +18,7 @@ class ItemsController < ApplicationController
     end
 
     def create
-        item = Item.new(params.require(:item).permit(:name, :description, :category, :price))
+        item = current_user.items.build(params.require(:item).permit(:name, :description, :category, :price))
         respond_to do |format|
             format.html do
                 if item.save
@@ -71,6 +75,12 @@ class ItemsController < ApplicationController
                 flash[:success] = 'Item removed successfully'
                 redirect_to items_url
             end
+        end
+    end
+
+    def require_permission
+        if Item.find(params[:id]).creator != current_user
+          redirect_to items_path, flash: { error: "You do not have permission to do that." }
         end
     end
 end

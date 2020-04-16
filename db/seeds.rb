@@ -5,21 +5,30 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Item.create!(
+
+u1 = User.create!(
+    email: 'alice@gmail.com',
+    password: 'password'
+)
+  
+u2 = User.create!(
+    email: 'bob@gmail.com',
+    password: 'password'
+)
+
+
+i1= Item.create!(
+    creator: u1,
     name: 'AcerLaptop',
     description: '8th Gen 4GB DDR4 RAM',
     price: '1200',
     category: 'Electronics'
 )
-Item.create!(
-    name: 'AcerLaptop',
-    description: '8th Gen 4GB DDR4 RAM',
-    price: '1200',
-    category: 'Electronics'
-)
-Item.create!(
-    name: 'AcerLaptop',
-    description: '8th Gen 4GB DDR4 RAM',
-    price: '1200',
+
+i2 = Item.create!(
+    creator: u2,
+    name: 'HP Laptop',
+    description: '8th Gen 8GB DDR4 RAM',
+    price: '1300',
     category: 'Electronics'
 )

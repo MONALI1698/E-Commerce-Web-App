@@ -31,9 +31,11 @@
       <p class="font-weight-normal"> Description: <%=it.description%> </p>
       <p class="font-weight-normal"><strong> Price: <%=it.price%> </strong></p>
 
-        <%= link_to 'View', item_path(it), class:"btn btn-primary" %>
-        <%= link_to 'Edit', edit_item_path(it), class:"btn btn-primary" %>
+      <% if it.creator == current_user %>
+      <%= link_to 'View', item_path(it), class:"btn btn-primary" %>
+      <%= link_to 'Edit', edit_item_path(it), class:"btn btn-primary" %>
        <%= link_to 'Delete', item_path(it), method: :delete, class:"btn btn-danger" %>
+        <% end %>
      
 
     </div>
