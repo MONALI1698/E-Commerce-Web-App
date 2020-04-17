@@ -34,6 +34,17 @@ u2.user_name="wsmith845"
 
 u2.save!
 
+u3 = User.new
+u3.email = 'admin@example.com'
+u3.password='admin123'
+u3.password_confirmation = 'admin123'
+#u2.encrypted_password = '$2a$11$1wyHotsKELPEAJjSO7LJ.eyPRCwV4d.QBiG9TnT2W/SVhBb5s4Mwegame'
+u3.name= 'admin'
+u3.user_name="admin"
+u3.is_admin = true
+
+u3.save!
+
 m1 = Message.create!(
     user: u1,
     content: 'This is a test message',
