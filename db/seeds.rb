@@ -46,7 +46,8 @@ i1= Item.create!(
     name: 'AcerLaptop',
     description: '8th Gen 4GB DDR4 RAM',
     price: '1200',
-    category: 'Electronics'
+    category: 'Electronics',
+    is_viewable: true
 )
 
 i2 = Item.create!(
@@ -54,6 +55,7 @@ i2 = Item.create!(
     name: 'HP Laptop',
     description: '8th Gen 8GB DDR4 RAM',
     price: '1300',
-    category: 'Electronics'
+    category: 'Electronics',
+    is_viewable: false
 )
 
