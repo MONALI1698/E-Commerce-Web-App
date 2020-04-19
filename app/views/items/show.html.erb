@@ -1,6 +1,13 @@
 <div class="card mb-3">
 
-  <%= image_tag "acer-laptop.jpg", class:"card-img-top", height: 300 %>
+  <% if item.file.attached?%>
+          <% if item.file.image?%>
+          <%= image_tag url_for(item.file.variant(resize: '300x400'))%>
+          <% else %>
+           <%= video_tag url_for(item.file), style:'width:100%; height:auto', controls: ''%>
+           <% end %>
+   <% end %>
+
   <div class="card-body">
     <h5 class="card-title"> <%=item.name%> </h5>
     <p class="card-text"> <%=item.description%> </p>

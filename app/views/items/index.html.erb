@@ -11,10 +11,16 @@
 
     
       <div class="view overlay">
-        <img src="https://mdbootstrap.com/img/Photos/Others/laptop-sm.jpg" class="img-fluid" alt="Sample image for first version of blog listing">
+      <% if it.file.attached?%>
+          <% if it.file.image?%>
+          <%= image_tag url_for(it.file.variant(resize: '300x400'))%>
+          <% else %>
+           <%= video_tag url_for(it.file), style:'width:100%; height:auto', controls: ''%>
+           <% end %>
         <a>
           <div class="mask rgba-white-slight"></div>
         </a>
+        <% end %>
       </div>
 
     </div>
@@ -32,10 +38,12 @@
       <p class="font-weight-normal"><strong> Price: <%=it.price%> </strong></p>
 
       <% if it.creator == current_user %>
-      <%= link_to 'View', item_path(it), class:"btn btn-primary" %>
-      <%= link_to 'Edit', edit_item_path(it), class:"btn btn-primary" %>
-      <%= link_to 'Delete', item_path(it), method: :delete, class:"btn btn-danger" %>
-      <% end %>
+
+        <%= link_to 'View', item_path(it), class:"btn btn-primary" %>
+        <%= link_to 'Edit', edit_item_path(it), class:"btn btn-primary" %>
+       <%= link_to 'Delete', item_path(it), method: :delete, class:"btn btn-danger" %>
+       <% end %>
+
      
 
     </div>
