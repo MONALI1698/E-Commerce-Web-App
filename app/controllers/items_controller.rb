@@ -63,7 +63,7 @@ class ItemsController < ApplicationController
 
     def show
         item = nil
-        if(params[:id != "search_results"])
+        if(params[:id] != "search_results")
             item = Item.find(params[:id])
         end
 
