@@ -63,4 +63,4 @@ gem 'annotate', group: :development
 gem 'devise'
 
 #file upload
-gem "mini_magick"
+gem "mini_magick", '~>4.10.1'
