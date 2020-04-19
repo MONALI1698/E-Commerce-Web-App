@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
     before_action :authenticate_user!
     before_action :is_seller?, only: [:index]
+    
     before_action :require_permission, only: [ :edit, :update, :destroy]
 
 
