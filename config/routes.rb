@@ -20,6 +20,9 @@ Rails.application.routes.draw do
 
   get 'items/search_results/:id', to: 'items#search', as: 'search'
 
-
-
+  #routes for Admin
+  get 'administrator', to:'administrator#index', as:'admin' #index
+  get 'administrator/:id', to:'administrator#show', as:'admin_item' #show
+  delete 'administrator/:id', to: 'administrator#destroy' # destroy
+  
 end

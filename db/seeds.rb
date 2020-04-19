@@ -6,11 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
-
-
-
-
 u1 = User.new
 u1.email = 'austinsmith845@example.com'
 u1.password='gamer123'
@@ -21,8 +16,6 @@ u1.user_name="austinsmith845"
 u1.is_seller = true
 
 u1.save!
-
-
 
 u2 = User.new
 u2.email = 'wsmith8@example.com'
@@ -38,12 +31,31 @@ u3 = User.new
 u3.email = 'admin@example.com'
 u3.password='admin123'
 u3.password_confirmation = 'admin123'
-#u2.encrypted_password = '$2a$11$1wyHotsKELPEAJjSO7LJ.eyPRCwV4d.QBiG9TnT2W/SVhBb5s4Mwegame'
 u3.name= 'admin'
 u3.user_name="admin"
 u3.is_admin = true
 
 u3.save!
+
+u4 = User.new
+u4.email = 'buyer@example.com'
+u4.password='buyer123'
+u4.password_confirmation = 'buyer123'
+u4.name= 'buyer'
+u4.user_name="buyer"
+u4.is_buyer = true
+
+u4.save!
+
+u5 = User.new
+u5.email = 'seller@example.com'
+u5.password='seller123'
+u5.password_confirmation = 'seller123'
+u5.name= 'seller'
+u5.user_name="seller"
+u5.is_seller = true
+
+u5.save!
 
 m1 = Message.create!(
     user: u1,
@@ -70,3 +82,11 @@ i2 = Item.create!(
     is_viewable: false
 )
 
+i3 = Item.create!(
+    creator: u5,
+    name: 'Echo dot',
+    description: 'Smart speaker with clock and Alexa',
+    price: '400',
+    category: 'Smart Home',
+    is_viewable: false
+)
