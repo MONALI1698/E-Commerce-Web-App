@@ -2,11 +2,11 @@ class AdministratorController < ApplicationController
     before_action :authenticate_user!
     before_action :is_admin?, only: [:index]
     
-    before_action :require_permission, only: [ :edit, :update, :destroy]
+    before_action :require_permission, only: [:destroy]
 
         
     def index
-        itemlist = Item.includes(:creator).all
+        itemlist = Item.all
         respond_to do |format|
             format.html { render:index, locals: { itemlist:itemlist} }
         end
