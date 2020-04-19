@@ -20,7 +20,11 @@
     <%= f.label :item_price, "Item Price:",class: "col-md-4 control-label" %><br>
     <%= f.text_field :price,class: "form-control" %>
 </div>
+ 
+<div class = "form-group">
+    <%= f.check_box :is_viewable %>  <%= label_tag "Viewable to buyers." %><br>
 
+</div>
 <%= f.submit "Update Item", class:"btn btn-primary" %>
 
 

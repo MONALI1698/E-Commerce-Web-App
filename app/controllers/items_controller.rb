@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
     end
 
     def create
-        item = current_user.items.build(params.require(:item).permit(:name, :description, :category, :price))
+        item = current_user.items.build(params.require(:item).permit(:name, :description, :category, :price, :is_viewable))
         respond_to do |format|
             format.html do
             
@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
         item = Item.find(params[:id])
         respond_to do |format|
             format.html do
-                if item.update(params.require(:item).permit(:name, :description, :category, :price))
+                if item.update(params.require(:item).permit(:name, :description, :category, :price, :is_viewable))
                     flash[:success] = 'Item updated successfully'
                     redirect_to items_url
                 else
@@ -61,9 +61,20 @@ class ItemsController < ApplicationController
 
 
     def show
-        item = Item.find(params[:id])
+        item = nil
+        if(params[:id != "search_results"])
+            item = Item.find(params[:id])
+        end
+
         respond_to do |format|
-            format.html { render:show, locals: { item:item} }
+            format.html do 
+                if(params[:id] == "search_results")
+                    flash[:error] = "You must enter a value to search."
+                    redirect_back(fallback_location: root_path)
+                else
+                 render:show, locals: { item:item} 
+                end
+            end
         end
     end
 
@@ -99,7 +110,7 @@ class ItemsController < ApplicationController
 
         respond_to do |format|
             query = params[:id]
-            items = Item.where("lower(name) like ? or lower(description) like ?", "%#{params[:id]}%".downcase,  "%#{params[:id]}%".downcase).to_a
+            items = Item.where("is_viewable = true and lower(name) like ? or lower(description) like ? ", "%#{params[:id]}%".downcase,  "%#{params[:id]}%".downcase).to_a
             
             format.html do
                 if(!items.empty?)
