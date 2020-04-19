@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root to: redirect('/home', status: 302)
   get 'home', to: 'g_rabit#home', as: 'home'
   get 'messages', to: 'messages#messages', as: 'messages'
+  get 'messages/:id', to: 'messages#message_board', as: 'message_board'
+  post 'messages/:id', to: 'messages#send_message'
   devise_for :users
   get 'user_profile',to: 'g_rabit#user_profile', as: 'user_profile'
 
@@ -16,6 +18,11 @@ Rails.application.routes.draw do
   get 'items/:id', to:'items#show', as:'item' #show
   delete 'items/:id', to: 'items#destroy' # destroy
 
+  get 'items/search_results/:id', to: 'items#search', as: 'search'
 
-
+  #routes for Admin
+  get 'administrator', to:'administrator#index', as:'admin' #index
+  get 'administrator/:id', to:'administrator#show', as:'admin_item' #show
+  delete 'administrator/:id', to: 'administrator#destroy' # destroy
+  
 end

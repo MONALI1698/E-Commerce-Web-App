@@ -5,9 +5,9 @@
 #  id                     :bigint           not null, primary key
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
-#  is_admin               :boolean          default("false")
-#  is_buyer               :boolean          default("false")
-#  is_seller              :boolean          default("false")
+#  is_admin               :boolean          default(FALSE)
+#  is_buyer               :boolean          default(FALSE)
+#  is_seller              :boolean          default(FALSE)
 #  name                   :string
 #  phone_number           :string
 #  remember_created_at    :datetime

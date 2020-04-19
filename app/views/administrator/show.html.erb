@@ -1,0 +1,15 @@
+<div class="card mb-3">
+
+  <%= image_tag "acer-laptop.jpg", class:"card-img-top", height: 300 %>
+  <div class="card-body">
+    <h5 class="card-title"> <%=item.name%> </h5>
+    <p class="card-text"> <%=item.description%> </p>
+    <p class="card-text"> <%=item.price%> </p>
+    <p class="card-text"> <%=item.category%> </p>
+    <p class="card-text"> <%=item.creator.name%> </p>
+
+    <%= link_to 'Delete Item', admin_item_path(item),method: :delete, class:"btn btn-danger" %>
+    <% user = User.find_by_id(item.user_id) %>
+    
+  </div>
+</div>
