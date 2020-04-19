@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
     end
 
     def create
-        item = current_user.items.build(params.require(:item).permit(:name, :description, :category, :price))
+        item = current_user.items.build(params.require(:item).permit(:name, :description, :category, :price, :file))
         respond_to do |format|
             format.html do
                 if item.save
@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
         item = Item.find(params[:id])
         respond_to do |format|
             format.html do
-                if item.update(params.require(:item).permit(:name, :description, :category, :price))
+                if item.update(params.require(:item).permit(:name, :description, :category, :price, :file))
                     flash[:success] = 'Item updated successfully'
                     redirect_to items_url
                 else

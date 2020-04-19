@@ -61,3 +61,6 @@ gem 'annotate', group: :development
 
 # Authentication
 gem 'devise'
+
+#file upload
+gem "mini_magick"
