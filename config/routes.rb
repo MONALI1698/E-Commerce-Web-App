@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   post 'items/:id',to:'items#reported' #reported
 
   get 'items/search_results/:id', to: 'items#search', as: 'search'
+  get 'items/category_results/:id', to: 'items#search_by_category', as: 'category'
 
   #routes for Admin
   get 'administrator', to:'administrator#index', as:'admin' #index

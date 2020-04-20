@@ -22,6 +22,8 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Item < ApplicationRecord
+  @@categories = nil 
+
   has_one_attached :file
 
 
@@ -31,4 +33,10 @@ class Item < ApplicationRecord
         foreign_key: 'user_id',
         inverse_of: :items
       )
+
+      def self.categories
+        @@categories = ["Antiques", "Art", "Baby", "Books", "Business & Industrial", "Clothing", "Money", "Collectibles", "Electronics" , "Crafts", "Toys", "Motors", "Memorabilia", "Health and Beauty", "Home", "Jewlry", "Music" , "Instruments", "Real Estate", "Services", "Sports", "Guns", "Event Tickets", "Gaming", "Miscellaneous"] 
+        @@categories
+      end
+
 end
