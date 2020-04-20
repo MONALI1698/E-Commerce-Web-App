@@ -36,8 +36,15 @@ class AdministratorController < ApplicationController
         respond_to do |format|
             format.html do
                 flash[:success] = 'Item removed successfully'
-                redirect_to admin_url
+                redirect_back(fallback_location: root_path)
             end
+        end
+    end
+    
+    def view
+        @items = Item.where("is_reported = ?",true)
+        respond_to do |format|
+            format.html { render:view, locals: { @items =>@items} }
         end
     end
 

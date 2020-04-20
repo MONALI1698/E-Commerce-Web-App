@@ -8,7 +8,7 @@
     <center>
     <div style = "float:left; margin:100px">
     <h5><b> Review Listing  <%= link_to 'LIST OF ITEMS', admin_path, class:"btn btn-primary " %> </b></h5> 
-    <h5><b> View Reports </b> <%= link_to ' VIEW REPORTS ', items_path, class:"btn btn-primary" %> </h5> 
+    <h5><b> View Reports </b> <%= link_to ' VIEW REPORTS ', reports_path, class:"btn btn-primary" %> </h5> 
     <h5><b> Reactivate Accounts </b> <%= link_to ' REACTIVATE ACCOUNTS ', items_path, class:"btn btn-primary" %> </h5> 
     
     </div>
@@ -19,21 +19,24 @@
 
 <% if current_user.is_buyer %>
     <center><h1>User Profile</h1></center>
+    <div style = "float:left; margin:20px">
         <%= image_tag "logo.png", width: 300 %><br /></b>
-        <div>Name :<%=current_user.name%> </div>
-        <div>Username :  <%=current_user.user_name%></div>
-        <p> Buyer </p>
-        <%= link_to "View Items Bought/Listed" %>
-        <%= link_to "View Messages"%>
-
+        <div><br/><b>Name : </b><%=current_user.name%></div> 
+        <div><b>Username : </b> <%=current_user.user_name%></div>
+        <p><b>Role: </b> Buyer </p>
+    </div>    
+        
 <% end %>
 
 <% if current_user.is_seller %>
     <center><h1>User Profile</h1></center>
-    <%= image_tag "logo.png", width: 300 %><br /></b>
-    <div>Name :<%=current_user.name%> </div>
-    <div>Username :  <%=current_user.user_name%></div>
-    <p> Seller </p>
+    <div style = "float:left; margin:20px">
+        <%= image_tag "logo.png", width: 300 %><br /></b>
+        <div><br/><b>Name : </b><%=current_user.name%></div> 
+        <div><b>Username : </b> <%=current_user.user_name%></div>
+        <p><b>Role: </b> Seller </p>
+    </div>    
+    
 <% end %>
 
 
