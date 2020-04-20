@@ -103,7 +103,7 @@ class ItemsController < ApplicationController
         respond_to do |format|
             format.html do
                 flash[:success] = 'Item reported to Admin '
-                redirect_to items_url
+                redirect_to :home
             end
         end
     end
