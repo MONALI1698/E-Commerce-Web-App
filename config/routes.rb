@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   #routes for Admin
   get 'administrator', to:'administrator#index', as:'admin' #index
+  get 'reports', to:'administrator#view', as:'reports' #view
   get 'administrator/:id', to:'administrator#show', as:'admin_item' #show
   delete 'administrator/:id', to: 'administrator#destroy' # destroy
   
