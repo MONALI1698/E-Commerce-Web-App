@@ -87,6 +87,14 @@
   <%if flash.key?(:error) %>
   <div class="alert alert-danger" role = "alert"
    <center><%= flash[:error] %></center>
+   
+   </div>
+  <%end%>
+
+  <%if flash.key?(:success) %>
+  <div class="alert alert-success" role = "alert"
+   <center><%= flash[:success] %></center>
+   
    </div>
   <%end%>
     <main class="container">

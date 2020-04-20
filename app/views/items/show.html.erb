@@ -1,5 +1,6 @@
 <div class="card mb-3">
 
+
   <% if item.file.attached?%>
           <% if item.file.image?%>
           <%= image_tag url_for(item.file.variant(resize: '300x400'))%>
@@ -17,12 +18,9 @@
     <% if item.creator == current_user %>
     <%= link_to 'Edit', edit_item_path(item), class:"btn btn-primary" %>
     <%= link_to 'Delete', item_path(item),method: :delete, class:"btn btn-danger" %>
+   
     <% end %>
     <% user = User.find_by_id(item.user_id) %>
     <%= link_to 'Message Seller', message_board_path(user.user_name),method: :get, class:"btn btn-warning" %>    
- 
-
-
-
-  </div>
+ <%= link_to 'Report the Item', item_path(item),method: :post,class:"btn btn-info" %>
 </div>

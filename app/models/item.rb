@@ -5,6 +5,7 @@
 #  id          :bigint           not null, primary key
 #  category    :string
 #  description :string
+#  is_reported :boolean
 #  is_viewable :boolean
 #  name        :string
 #  price       :integer
