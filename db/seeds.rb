@@ -70,7 +70,8 @@ i1= Item.create!(
     description: '8th Gen 4GB DDR4 RAM',
     price: '1200',
     category: 'Electronics',
-    is_viewable: true
+    is_viewable: true,
+    is_reported: false
 )
 
 i2 = Item.create!(
@@ -79,7 +80,8 @@ i2 = Item.create!(
     description: '8th Gen 8GB DDR4 RAM',
     price: '1300',
     category: 'Electronics',
-    is_viewable: false
+    is_viewable: false, 
+    is_reported: false
 )
 
 i3 = Item.create!(
@@ -88,5 +90,6 @@ i3 = Item.create!(
     description: 'Smart speaker with clock and Alexa',
     price: '400',
     category: 'Smart Home',
-    is_viewable: false
+    is_viewable: false,
+    is_reported: false
 )

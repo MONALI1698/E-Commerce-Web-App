@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   put 'items/:id', to: 'items#update' # update (full replacement)
   get 'items/:id', to:'items#show', as:'item' #show
   delete 'items/:id', to: 'items#destroy' # destroy
+  post 'items/:id',to:'items#reported' #reported
 
   get 'items/search_results/:id', to: 'items#search', as: 'search'
 

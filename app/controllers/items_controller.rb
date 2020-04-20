@@ -20,7 +20,8 @@ class ItemsController < ApplicationController
     end
 
     def create
-        item = current_user.items.build(params.require(:item).permit(:name, :description, :category, :price, :is_viewable, :file))
+       
+        item = current_user.items.build(params.require(:item).permit(:name, :description, :category, :price, :is_viewable,  :file))
         respond_to do |format|
             format.html do
             
@@ -65,6 +66,7 @@ class ItemsController < ApplicationController
 
     def show
         item = nil
+        
         if(params[:id] != "search_results")
             item = Item.find(params[:id])
         end
@@ -94,6 +96,17 @@ class ItemsController < ApplicationController
         end
     end
 
+
+    def reported
+        item=Item.find(params[:id])
+        item.update_column(:is_reported,true)
+        respond_to do |format|
+            format.html do
+                flash[:success] = 'Item reported to Admin '
+                redirect_to :home
+            end
+        end
+    end
     def require_permission
     
         if Item.find(params[:id]).creator != current_user
