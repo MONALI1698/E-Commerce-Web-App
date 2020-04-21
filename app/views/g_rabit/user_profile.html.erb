@@ -1,15 +1,19 @@
 <% if current_user.is_admin %>
-    <center><h1><b>Administrator Dashboard</b></h1></center>
-    <div style = "float:left; margin:20px">
-        <%= image_tag "logo.png", width: 300 %><br/>
-        <div><br/><b>Name : </b><%=current_user.name%></div> 
-        <div><b>Username : </b> <%=current_user.user_name%></div>
+    <center><h1 style = "color: black"><b>Administrator Dashboard</b></h1></center>
+    <div style = " float:left; margin:10px">
+        <%= image_tag "logo.png", width: 200 %>
+    </div>  
+    <div style = "margin:60px">  
+        <div><h5><b>Name : <%=current_user.name%></b></h5></div></br>
+        <div><h5><b>Username :  <%=current_user.user_name%></b></h5></div>
     </div>
+
     <center>
-    <div style = "float:left; margin:100px">
-    <h5><b> Review Listing  <%= link_to 'LIST OF ITEMS', admin_path, class:"btn btn-primary " %> </b></h5> 
-    <h5><b> View Reports </b> <%= link_to ' VIEW REPORTS ', reports_path, class:"btn btn-primary" %> </h5> 
-    <h5><b> Reactivate Accounts </b> <%= link_to ' REACTIVATE ACCOUNTS ', items_path, class:"btn btn-primary" %> </h5> 
+    <div style = "margin:20px;" class ="container-sm float-right ">
+    <h5><b> <%= link_to 'LIST OF ITEMS', admin_path, class:" btn btn-primary btn-lg btn-block " %> </b></h5> 
+    <h5><b> <%= link_to ' VIEW REPORTS ', reports_path, class:"btn btn-primary btn-lg btn-block" %> </b></h5> 
+    <h5><b> <%= link_to ' VIEW USERS ', users_path, class:"btn btn-primary btn-lg btn-block" %> </b></h5> 
+    <h5><b> <%= link_to ' REACTIVATE ACCOUNTS ', '', class:"btn btn-primary btn-lg btn-block" %><b> </h5> 
     
     </div>
     </center>
@@ -17,7 +21,7 @@
     
 <% end %>
 
-<% if current_user.is_buyer %>
+<% if current_user.is_buyer && !current_user.is_seller %>
     <center><h1>User Profile</h1></center>
     <div style = "float:left; margin:20px">
         <%= image_tag "logo.png", width: 300 %><br /></b>
@@ -28,7 +32,7 @@
         
 <% end %>
 
-<% if current_user.is_seller %>
+<% if current_user.is_seller && !current_user.is_buyer %>
     <center><h1>User Profile</h1></center>
     <div style = "float:left; margin:20px">
         <%= image_tag "logo.png", width: 300 %><br /></b>
@@ -37,6 +41,17 @@
         <p><b>Role: </b> Seller </p>
     </div>    
     
+<% end %>
+
+<% if current_user.is_buyer && current_user.is_seller %>
+    <center><h1>User Profile</h1></center>
+    <div style = "float:left; margin:20px">
+        <%= image_tag "logo.png", width: 300 %><br /></b>
+        <div><br/><b>Name : </b><%=current_user.name%></div> 
+        <div><b>Username : </b> <%=current_user.user_name%></div>
+        <p><b>Role: </b> Both </p>
+    </div>    
+        
 <% end %>
 
 
