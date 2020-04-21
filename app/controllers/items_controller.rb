@@ -139,4 +139,22 @@ class ItemsController < ApplicationController
         end
 
     end
+
+    def search_by_category()
+
+        respond_to do |format|
+            query = params[:id]
+            items = Item.where("is_viewable = true and lower(category) like ? ", "%#{params[:id]}%".downcase).to_a
+            
+            format.html do
+                if(!items.empty?)
+                    render :search_results, locals: {items: items, query: query}
+                else
+                    flash[:error] = "There were no results found for "+ params[:id]
+                    redirect_to :home
+                end
+            end
+        end
+
+    end
 end
