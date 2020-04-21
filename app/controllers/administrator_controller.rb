@@ -36,7 +36,7 @@ class AdministratorController < ApplicationController
         respond_to do |format|
             format.html do
                 flash[:success] = 'Item removed successfully'
-                redirect_back(fallback_location: root_path)
+                redirect_to admin_url
             end
         end
     end
