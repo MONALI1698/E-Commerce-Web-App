@@ -12,8 +12,10 @@
 </div>
 
 <div class ="form-group">
-    <%= f.label :item_category, "Item Category:",class: "col-md-4 control-label" %><br>
-    <%= f.text_field :category,class: "form-control" %>
+
+    <%= f.label "Select a Category:", class: "col-md-4 control-label" %> <br>
+
+    <%= f.select :category, options_for_select(Item.categories), class: "col-md-4 control-label" %>
 </div>
 
 <div class ="form-group">

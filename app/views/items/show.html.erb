@@ -21,6 +21,8 @@
    
     <% end %>
     <% user = User.find_by_id(item.user_id) %>
-    <%= link_to 'Message Seller', message_board_path(user.user_name),method: :get, class:"btn btn-warning" %>    
- <%= link_to 'Report the Item', item_path(item),method: :post,class:"btn btn-info" %>
+    <%= link_to 'Message Seller', message_board_path(user.user_name),method: :get, class:"btn btn-warning" %>  
+     <% if item.creator != current_user %> 
+        <%= link_to 'Report the Item', item_path(item),method: :post,class:"btn btn-info" %>
+    <% end %>
 </div>

@@ -18,6 +18,12 @@
 
 }
 
+    function searchByCategory(){
+      var cat = event.srcElement.id;
+      location.replace(window.location.origin + "/items/category_results/"+ cat);
+
+}
+
     function navEnterKeyPressed(e){
         if(e.keyCode == 13 )
         {
@@ -40,9 +46,16 @@
   <div class="collapse navbar-collapse item">
     <ul class="navbar-nav mr-auto">
       
-      <li class="nav-item">
-        <a class="nav-link " href="#">Categories</a>
-      </li>
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Categories
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <% Item.categories.each do |cat| %>
+        <a id= "<%= cat %>" class="dropdown-item" onClick= "searchByCategory()" ><%= cat %></a>
+       
+      <%end%>
+  </li>
       <li class="nav-item">
         <a class="nav-link " href="/user_profile">User Profile</a>
       </li>
@@ -97,8 +110,10 @@
    
    </div>
   <%end%>
+
+  
     <main class="container">
-     
+
       <%= yield %>
     </main>
 
