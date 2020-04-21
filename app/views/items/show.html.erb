@@ -1,28 +1,31 @@
-<div class="card mb-3">
+<div class="jumbotron text-center hoverable p-4">
 
+  <div class="row">
 
-  <% if item.file.attached?%>
+    <div class="col-md-4 offset-md-1 mx-3 my-3">
+
+    
+      <div class="view overlay">
+      <% if item.file.attached?%>
           <% if item.file.image?%>
           <%= image_tag url_for(item.file.variant(resize: '300x400'))%>
           <% else %>
            <%= video_tag url_for(item.file), style:'width:100%; height:auto', controls: ''%>
            <% end %>
-   <% end %>
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+        <% end %>
+      </div>
 
-  <div class="card-body">
-    <h5 class="card-title"> <%=item.name%> </h5>
-    <p class="card-text"> <%=item.description%> </p>
-    <p class="card-text"> <%=item.price%> </p>
-    <p class="card-text"> <%=item.category%> </p>
-
-    <% if item.creator == current_user %>
-    <%= link_to 'Edit', edit_item_path(item), class:"btn btn-primary" %>
-    <%= link_to 'Delete', item_path(item),method: :delete, class:"btn btn-danger" %>
+    </div>
    
-    <% end %>
+
+
     <% user = User.find_by_id(item.user_id) %>
     <%= link_to 'Message Seller', message_board_path(user.user_name),method: :get, class:"btn btn-warning" %>  
      <% if item.creator != current_user %> 
         <%= link_to 'Report the Item', item_path(item),method: :post,class:"btn btn-info" %>
     <% end %>
+
 </div>
