@@ -23,7 +23,7 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
-
+has_one_attached :profile_image
   has_many(
     :items,
     class_name: 'Item',
