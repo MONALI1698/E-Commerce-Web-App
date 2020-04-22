@@ -52,7 +52,7 @@
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:lightblue">
         <% Item.categories.each do |cat| %>
-        <a id= "<%= cat %>" class="dropdown-item" onClick= "searchByCategory()" ><b><%= cat %></b></a>
+        <button id= "<%= cat %>" class="dropdown-item" onClick= "searchByCategory()" ><b><%= cat %></b></button>
        
       <%end%>
   </li>
