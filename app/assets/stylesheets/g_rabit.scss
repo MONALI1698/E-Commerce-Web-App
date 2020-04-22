@@ -9,9 +9,6 @@ $blue: blue;
 .navbar {
         margin-bottom: 0;
        
-        
-       
-       
 }
 
 .nav.navbar-nav.navbar-right li a {
@@ -39,7 +36,7 @@ $blue: blue;
 
 }
 p {
-    color: rgb(25, 0, 253);
+    color: black;
     font-family: courier;
     font-size: 150%;
   
@@ -59,9 +56,9 @@ p {
 
   body {
     text-align: center;
-    background-image:image-url("/assets/background.jpeg");
-    background-repeat: no-repeat;
-    background-size: 150%;
+    background-image: image-url("/assets/bg.jpg");
+    background-repeat: reverse repeat;
+    background-size: 200%;
   }
 
   handcursor:hover{
@@ -93,5 +90,3 @@ p {
     
    
   }
-
-  
