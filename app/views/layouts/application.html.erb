@@ -52,7 +52,7 @@
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:lightblue">
         <% Item.categories.each do |cat| %>
-        <button id= "<%= cat %>" class="dropdown-item" onClick= "searchByCategory()" ><b><%= cat %></b></button>
+        <%= submit_tag cat, :id=> cat,  :class=> "dropdown-item", :onClick=> "searchByCategory()" %>
        
       <%end%>
   </li>
