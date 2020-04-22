@@ -59,13 +59,17 @@
       <li class="nav-item">
         <a class="nav-link " href="/user_profile">User Profile</a>
       </li>
+      <%if user_signed_in? && current_user.is_seller%>
       <li class="nav-item">
         <a class="nav-link " href="/items">List Item</a>
       </li>
+      <% end %>
+      <%if user_signed_in? && !current_user.is_admin%>
       <li class="nav-item">
         <a class="nav-link " href="/messages">Messages</a>
        
       </li>
+        <% end %>
     </ul>
      <div class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" id= "nav_search_text" placeholder="Search" aria-label="Search" onKeyPress= "navEnterKeyPress(event)" />
