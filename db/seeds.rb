@@ -24,7 +24,7 @@ u2.password_confirmation = 'gamer123'
 #u2.encrypted_password = '$2a$11$1wyHotsKELPEAJjSO7LJ.eyPRCwV4d.QBiG9TnT2W/SVhBb5s4Mwegame'
 u2.name= 'William Smith'
 u2.user_name="wsmith845"
-
+u1.is_seller = true
 u2.save!
 
 u3 = User.new
@@ -80,7 +80,7 @@ i2 = Item.create!(
     description: '8th Gen 8GB DDR4 RAM',
     price: '1300',
     category: "Electronics",
-    is_viewable: false, 
+    is_viewable: true, 
     is_reported: false
 )
 
@@ -90,9 +90,20 @@ i3 = Item.create!(
     description: 'Smart speaker with clock and Alexa',
     price: '400',
     category: "Electronics",
-    is_viewable: false,
+    is_viewable: true,
     is_reported: false
 )
+
+i4 = Item.create!(
+    creator: u5,
+    name: 'Study Desk',
+    description: 'Folding Laptop Table for Home',
+    price: '100',
+    category: "Home",
+    is_viewable: true,
+    is_reported: false
+)
+
 u1.profile_image.attach(io: File.open('app/assets/images/profile.png'), filename: 'profile.png', content_type: 'image/png')
 u2.profile_image.attach(io: File.open('app/assets/images/profile.png'), filename: 'profile.png', content_type: 'image/png')
 u3.profile_image.attach(io: File.open('app/assets/images/admin.png'), filename: 'admin.png', content_type: 'image/png')

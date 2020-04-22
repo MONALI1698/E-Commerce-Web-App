@@ -6,11 +6,12 @@
          <% if current_user.profile_image.attached?%>
           <%= image_tag url_for(current_user.profile_image.variant(resize: '150x200'))%>
          <% end %>
+
          </div>
           <div style ="margin-left:60px; margin-top:50px">
           <div><h5><b>Name : <%=current_user.name%></b></h5></div> 
           <div><h5><b>Username : <%=current_user.user_name%></b></h5></div>
-          <b><%= link_to "Edit Your Profile", edit_user_registration_path %></b>
+          <b><%= link_to "Edit Your Profile", edit_user_registration_path, class:"btn btn-primary btn-sm" %></b>
             
          </div>
          
@@ -29,14 +30,14 @@
     
 <% end %>
 
-<% if current_user.is_buyer && !current_user.is_seller %>
+<% if current_user.is_buyer && !current_user.is_seller && !current_user.is_admin %>
     <center><h1>User Profile</h1></center>
     <div style = "float:left; margin:20px">
        <% if current_user.profile_image.attached?%>
-          <%= image_tag url_for(current_user.profile_image.variant(resize: '300x400'))%>
+          <%= image_tag url_for(current_user.profile_image.variant(resize: '200x300'))%>
           <% end %>
-           <br>
-          <%= link_to "Edit Your Profile", edit_user_registration_path %>
+           <br><br>
+          <%= link_to "Edit Your Profile", edit_user_registration_path, class:"btn btn-primary btn-sm" %>
         <div><br/><b>Name : </b><%=current_user.name%></div> 
         <div><b>Username : </b> <%=current_user.user_name%></div>
         <p><b>Role: </b> Buyer </p>
@@ -44,14 +45,14 @@
         
 <% end %>
 
-<% if current_user.is_seller && !current_user.is_buyer %>
+<% if current_user.is_seller && !current_user.is_buyer && !current_user.is_admin %>
     <center><h1>User Profile</h1></center>
     <div style = "float:left; margin:20px">
       <% if current_user.profile_image.attached?%>
-          <%= image_tag url_for(current_user.profile_image.variant(resize: '300x400'))%>
+          <%= image_tag url_for(current_user.profile_image.variant(resize: '200x300'))%>
           <% end %>
-           <br>
-          <%= link_to "Edit Your Profile", edit_user_registration_path %>
+           <br><br>
+          <%= link_to "Edit Your Profile", edit_user_registration_path,  class:"btn btn-primary btn-sm" %>
         <div><br/><b>Name : </b><%=current_user.name%></div> 
         <div><b>Username : </b> <%=current_user.user_name%></div>
         <p><b>Role: </b> Seller </p>
@@ -59,13 +60,32 @@
     
 <% end %>
 
-<% if current_user.is_buyer && current_user.is_seller %>
+<% if current_user.is_buyer && current_user.is_seller && !current_user.is_admin%>
     <center><h1>User Profile</h1></center>
     <div style = "float:left; margin:20px">
-        <%= image_tag "logo.png", width: 300 %><br /></b>
+    <% if current_user.profile_image.attached?%>
+    <%= image_tag url_for(current_user.profile_image.variant(resize: '200x300'))%>
+    <% end %>
+    <br><br>
+        <%= link_to "Edit Your Profile", edit_user_registration_path,  class:"btn btn-primary btn-sm" %>
         <div><br/><b>Name : </b><%=current_user.name%></div> 
         <div><b>Username : </b> <%=current_user.user_name%></div>
         <p><b>Role: </b> Both </p>
+    </div>    
+        
+<% end %>
+
+<% if !current_user.is_buyer && !current_user.is_seller && !current_user.is_admin%>
+    <center><h1>User Profile</h1></center>
+    <div style = "float:left; margin:20px">
+    <% if current_user.profile_image.attached?%>
+    <%= image_tag url_for(current_user.profile_image.variant(resize: '200x300'))%>
+    <% end %>
+    <br><br>
+        <%= link_to "Edit Your Profile", edit_user_registration_path,  class:"btn btn-primary btn-sm" %>
+        <div><br/><b>Name : </b><%=current_user.name%></div> 
+        <div><b>Username : </b> <%=current_user.user_name%></div>
+        <p><b>Role: </b> None </p>
     </div>    
         
 <% end %>
