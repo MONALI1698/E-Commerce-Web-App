@@ -9,13 +9,10 @@ $blue: blue;
 .navbar {
         margin-bottom: 0;
        
-        
-       
-       
 }
 
 .nav.navbar-nav.navbar-right li a {
-    color: rgba(16, 17, 16, 0.931);
+    color: rgba(27, 31, 27, 0.931);
 }
 
 .nav.navbar-nav li a {
@@ -39,7 +36,7 @@ $blue: blue;
 
 }
 p {
-    color: rgb(25, 0, 253);
+    color: black;
     font-family: courier;
     font-size: 150%;
   
@@ -59,7 +56,7 @@ p {
 
   body {
     text-align: center;
-    background-image:image-url("/assets/background.jpeg");
+    background-image: linear-gradient( lightblue, lightgreen);
     background-repeat: no-repeat;
     background-size: 150%;
   }
@@ -93,5 +90,3 @@ p {
     
    
   }
-
-  

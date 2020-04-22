@@ -1,15 +1,19 @@
 <% if current_user.is_admin %>
-
-    <center><h1><b>Administrator Dashboard</b></h1></center>
+    <div style ="margin-top:5px">
+    <center><h1 style="color: darkblue"><b>Administrator Dashboard</b></h1></center>
+    </div>
     <div style = "float:left; margin:20px">
-              <% if current_user.profile_image.attached?%>
-          <%= image_tag url_for(current_user.profile_image.variant(resize: '300x400'))%>
-          <% end %>
-          <br>
-          <%= link_to "Edit Your Profile", edit_user_registration_path %>
-        <div><br/><b>Name : </b><%=current_user.name%></div> 
-        <div><b>Username : </b> <%=current_user.user_name%></div>
-
+         <% if current_user.profile_image.attached?%>
+          <%= image_tag url_for(current_user.profile_image.variant(resize: '150x200'))%>
+         <% end %>
+         </div>
+          <div style ="margin-left:60px; margin-top:50px">
+          <div><h5><b>Name : <%=current_user.name%></b></h5></div> 
+          <div><h5><b>Username : <%=current_user.user_name%></b></h5></div>
+          <b><%= link_to "Edit Your Profile", edit_user_registration_path %></b>
+            
+         </div>
+         
     </div>
 
     <center>

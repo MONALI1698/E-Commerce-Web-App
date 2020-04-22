@@ -93,11 +93,11 @@ i3 = Item.create!(
     is_viewable: false,
     is_reported: false
 )
-u1.profile_image.attach(io: File.open('app/assets/images/logo.png'), filename: 'logo.png', content_type: 'image/png')
-u2.profile_image.attach(io: File.open('app/assets/images/logo.png'), filename: 'logo.png', content_type: 'image/png')
-u3.profile_image.attach(io: File.open('app/assets/images/logo.png'), filename: 'logo.png', content_type: 'image/png')
-u4.profile_image.attach(io: File.open('app/assets/images/logo.png'), filename: 'logo.png', content_type: 'image/png')
-u5.profile_image.attach(io: File.open('app/assets/images/logo.png'), filename: 'logo.png', content_type: 'image/png')
+u1.profile_image.attach(io: File.open('app/assets/images/profile.png'), filename: 'profile.png', content_type: 'image/png')
+u2.profile_image.attach(io: File.open('app/assets/images/profile.png'), filename: 'profile.png', content_type: 'image/png')
+u3.profile_image.attach(io: File.open('app/assets/images/admin.png'), filename: 'admin.png', content_type: 'image/png')
+u4.profile_image.attach(io: File.open('app/assets/images/profile.png'), filename: 'profile.png', content_type: 'image/png')
+u5.profile_image.attach(io: File.open('app/assets/images/profile.png'), filename: 'profile.png', content_type: 'image/png')
 
 i1.file.attach(io: File.open('app/assets/images/acer-laptop.jpg'), filename: 'acer-laptop.jpg', content_type: 'image/jpg')
 i2.file.attach(io: File.open('app/assets/images/acer-laptop.jpg'), filename: 'acer-laptop.jpg', content_type: 'image/jpg')
