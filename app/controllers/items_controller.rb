@@ -107,6 +107,7 @@ class ItemsController < ApplicationController
             end
         end
     end
+    
     def require_permission
     
         if Item.find(params[:id]).creator != current_user

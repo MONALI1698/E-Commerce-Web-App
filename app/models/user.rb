@@ -7,6 +7,7 @@
 #  encrypted_password     :string           default(""), not null
 #  is_admin               :boolean          default(FALSE)
 #  is_buyer               :boolean          default(FALSE)
+#  is_deactivated         :boolean          default(FALSE)
 #  is_seller              :boolean          default(FALSE)
 #  name                   :string
 #  phone_number           :string
@@ -38,4 +39,17 @@ has_one_attached :profile_image
       
   has_many :messages
   validates :user_name, presence: true
+
+  def destroy
+        update_attributes(deactivated: true) unless deactivated
+  end
+
+  def active_for_authentication?
+    super && !is_deactivated
+  end
+
+  def inactive_message
+    :inactive
+  end
+  
 end

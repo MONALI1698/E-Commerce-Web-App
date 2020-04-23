@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   devise_for :users
   get 'user_profile',to: 'g_rabit#user_profile', as: 'user_profile'
   get 'users', to: 'g_rabit#index', as: 'users' #list all users
+  get 'users/:id',to:'g_rabit#deactivate', as:'deactivate' #Deactivated
 
   #routes for item model
   get 'items', to:'items#index', as:'items' #index

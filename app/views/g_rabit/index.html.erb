@@ -46,7 +46,22 @@
                     <h4 class="h4 mb-4" style="color: darkblue" ><b> None</b></h4>
                     <% end %>
                     
-                    <h5><b> <%= link_to ' DEACTIVATE USER ', '', class:"btn btn-danger btn-lg " %></b> </h5> 
+                    <% if it.is_deactivated %>
+                    <h4 class="h4 mb-3" style="color: darkblue" ><b> Status: Deactive </b></h4>
+
+                    <%else%>
+                    
+                    <h4 class="h4 mb-3" style="color: darkblue" ><b> Status: Active </b></h4>
+                    
+                    <h5><b> <%= link_to ' DEACTIVATE USER ', deactivate_path(it), class:"btn btn-danger btn-lg " %></b> </h5> 
+                   
+                    <%end%>
+
+
+
+
+
+                   
                                 
                 </div>
             
