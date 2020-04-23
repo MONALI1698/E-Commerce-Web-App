@@ -7,6 +7,7 @@
 #  encrypted_password     :string           default(""), not null
 #  is_admin               :boolean          default(FALSE)
 #  is_buyer               :boolean          default(FALSE)
+#  is_deactivated         :boolean          default(FALSE)
 #  is_seller              :boolean          default(FALSE)
 #  name                   :string
 #  phone_number           :string
