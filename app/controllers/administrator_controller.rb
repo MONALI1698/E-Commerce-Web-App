@@ -41,6 +41,13 @@ class AdministratorController < ApplicationController
         end
     end
     
+    def userindex
+        @users = User.where.not(:id=>current_user.id,:is_deactivated=>false)
+        respond_to do|format|
+         format.html {render:userindex, locals: {@users=>@users}}
+         end
+    end
+
     def view
         @items = Item.where("is_reported = ?",true)
         respond_to do |format|

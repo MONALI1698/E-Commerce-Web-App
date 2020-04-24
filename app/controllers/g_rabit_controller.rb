@@ -37,6 +37,5 @@ class GRabitController < ApplicationController
       end
     end
 
-
-end
+  end
 end
