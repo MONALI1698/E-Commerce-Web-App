@@ -41,6 +41,24 @@ class AdministratorController < ApplicationController
         end
     end
     
+    def reactivate
+        user= User.find(params[:id])
+        user.update_column(:is_deactivated,false)
+        respond_to do |format|
+            format.html do
+                flash[:success] = 'User Reactivated '
+                redirect_to users_url
+            end
+        end
+      end
+
+    def userindex
+        @users = User.where.not(:id=>current_user.id,:is_deactivated=>false)
+        respond_to do|format|
+         format.html {render:userindex, locals: {@users=>@users}}
+         end
+    end
+
     def view
         @items = Item.where("is_reported = ?",true)
         respond_to do |format|

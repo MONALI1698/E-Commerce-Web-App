@@ -10,13 +10,19 @@
                 <div class="col-md-4 offset-md-1 mx-3 my-3">
             
                 
-                <div class="view overlay">
-                    <img src="https://mdbootstrap.com/img/Photos/Others/laptop-sm.jpg" class="img-fluid" alt="Sample image for first version of blog listing">
-                    <a>
-                    <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-            
+                    <div class="view overlay">
+                        <% if it.file.attached?%>
+                            <% if it.file.image?%>
+                            <%= image_tag url_for(it.file.variant(resize: '300x400'))%>
+                            <% else %>
+                            <%= video_tag url_for(it.file), style:'width:100%; height:auto', controls: ''%>
+                            <% end %>
+                        <a>
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                        <% end %>
+                    </div>
+                
                 </div>
             
                 <div class="col-md-7 text-md-left ml-3 mt-3">

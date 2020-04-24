@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'users', to: 'g_rabit#index', as: 'users' #list all users
   get 'users/:id',to:'g_rabit#deactivate', as:'deactivate' #Deactivated
 
+  
+
   #routes for item model
   get 'items', to:'items#index', as:'items' #index
   get 'items/new', to: 'items#new', as: 'new_item' # new
@@ -26,6 +28,8 @@ Rails.application.routes.draw do
   #routes for Admin
   get 'administrator', to:'administrator#index', as:'admin' #index
   get 'reports', to:'administrator#view', as:'reports' #view
+  get 'deactivated_users', to: 'administrator#userindex', as: 'deactivated_users' #list all deactivated users
+  get 'deactivated_users/:id', to: 'administrator#reactivate', as: 'reactivate_users' #reactivate users
   get 'administrator/:id', to:'administrator#show', as:'admin_item' #show
   delete 'administrator/:id', to: 'administrator#destroy' # destroy
   
