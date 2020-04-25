@@ -57,6 +57,16 @@ u5.is_seller = true
 
 u5.save!
 
+u6 = User.new
+u6.email = 'Bob@example.com'
+u6.password='bob123'
+u6.password_confirmation = 'bob123'
+u6.name= 'Bob'
+u6.user_name="Bob"
+u6.is_buyer = true
+
+u6.save!
+
 m1 = Message.create!(
     user: u1,
     content: 'This is a test message',

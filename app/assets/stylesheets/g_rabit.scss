@@ -31,7 +31,7 @@ $blue: blue;
 
 .item > .navbar-nav > .nav-item > .nav-link{
   font-size: 18px;
-  color:black;
+  color: grey;
   font-weight: bold;
 
 }
@@ -56,9 +56,9 @@ p {
 
   body {
     text-align: center;
-    background-image: image-url("/assets/bg.jpg");
+    background-image: image-url("/assets/black.jpg");
     background-repeat: reverse repeat;
-    background-size: 200%;
+    background-size: cover;
   }
 
   handcursor:hover{

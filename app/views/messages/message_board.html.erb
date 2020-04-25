@@ -1,12 +1,18 @@
-<center><h1>Conversation with <%= message_sender.name %></h1><center>
 
+<div style="margin-top:20px; background-color:lightgreen">
+<center>
+<i><h2 style="color:black"><b>Conversation with <%= message_sender.name %> </b></h2></i>
+</center>
+</div>
+
+
+<center>
 <div id = "refresh">
     <div id= "messagebox">
-        <p>
+        <p style="color:lightblue">
             <% messages.each do |m| %>
                 <%= "[" + m.sender + "]: " +  m.content %><br/>
-              
-        
+                      
             <% end %>
 
         </p>
@@ -23,3 +29,4 @@
     <% end %>
 
 </div>
+</center>

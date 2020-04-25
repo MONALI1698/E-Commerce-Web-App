@@ -1,6 +1,10 @@
-<br/><center><h2><%= signed_in_user.name%>'s Messages</h2></center>
+<div style="margin-top:20px; margin-bottom:20px; background-color:lightgreen">
+<center>
+<i><h2 style="color:black"><b><%= signed_in_user.name%>'s Messages </b></h2></i>
+</center>
+</div>
 
-<ul class="list-group">
+<ul class="list-group" >
     <% users= [] %>
   <% signed_in_user.messages.each do |message| %>
     <%if !users.include?(message.sender) && message.sender != current_user.user_name%>
