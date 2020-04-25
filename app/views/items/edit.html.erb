@@ -1,38 +1,41 @@
-<h2> Edit Item </h2>
+<div style="background-color:lightgreen; margin-top:15px; margin-bottom:25px">
+<center><i><h2 style="color:black"><b>Edit Item </b></h2></i>
+</center>
+</div>
 
 <%= form_with model: item, url: item_path, method: :patch, local: true, scope: :item do |f| %>
-<div class ="form-group">
+<div class ="form-group" style="color:white; ">
     <%= f.label :item_name, "Item Name:",class: "col-md-4 control-label" %><br>
     <%= f.text_field :name,class: "form-control" %>
 </div>
 
-<div class ="form-group">
+<div class ="form-group" style="color:white">
     <%= f.label :item_description, "Item Description:",class: "col-md-4 control-label" %><br>
     <%= f.text_field :description,class: "form-control" %>
 </div>
 
-<div class ="form-group">
+<div class ="form-group" style="color:white">
 
     <%= f.label "Select a Category:", class: "col-md-4 control-label" %> <br>
 
     <%= f.select :category, options_for_select(Item.categories), class: "col-md-4 control-label" %>
 </div>
 
-<div class ="form-group">
+<div class ="form-group" style="color:white">
     <%= f.label :item_price, "Item Price:",class: "col-md-4 control-label" %><br>
     <%= f.text_field :price,class: "form-control" %>
 </div>
 
-<div class= "form-group">
+<div class= "form-group" style="color:white">
 <%= f.label:item_image, "Upload Image/Video:", class:"col-md-4 control-label"%>
 <%= f.file_field :file, class:"form-control", direct_upload: true%>
-
+</div><br>
  
-<div class = "form-group">
+<div class = "form-group" style="color:white; margin-bottom:5px">
     <%= f.check_box :is_viewable %>  <%= label_tag "Viewable to buyers." %><br>
 
-
 </div>
+
 <%= f.submit "Update Item", class:"btn btn-primary" %>
 
 
