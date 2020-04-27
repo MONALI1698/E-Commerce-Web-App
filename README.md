@@ -21,10 +21,6 @@ Run `sudo apt-get update`
 
 Run `sudo apt-get install imagemagick`
 
-As a quick sanity check to make sure that things are working, you can run `rails test`. Although the app has no tests, the command should run without error.
-
-You can also run `rails s` and open <http://localhost:3000> to confirm that the development server runs without error and the default page loads as expected.
-
 
 
 ## About the Project Skeleton
@@ -40,9 +36,9 @@ You can also run `rails s` and open <http://localhost:3000> to confirm that the 
 
 ## What you can do after running this app
 
-In Sign-up, User can crate a new account in gRabit as a Buyer/Seller as per your wish.
+In Sign-up, User can create a new account in gRabit as a Buyer/Seller as per your wish.
 
-- As example, 'Alice' wantes to sign-up as a seller. 
+- As example, 'Alice' wants to sign-up as a seller. 
 
 - Name: Alice
 - Username: Alice ( as per your wish).
@@ -66,4 +62,8 @@ In SignIn, User can login as an existing user if you have already signed-up.
 - Email: admin@example.com
 - Password: admin123
 
+If you logged in as a seller. You can add items for selling by going to Add Item tab.
 
+If you are a buyer, you can search items from the search box or categories from the dropdown.  
+
+Note: There are already some seeded data in the project. 
