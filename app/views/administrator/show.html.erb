@@ -25,6 +25,8 @@
       <p class="card-text"> <%=item.price%> </p>
       <p class="card-text"> <%=item.category%> </p>
       <p class="card-text"> <%=item.creator.name%> </p>
+       <p class="card-text"> <%=item.created_at.strftime("%m/%d/%Y")%> </p>
+      
 
       <%= link_to 'Delete Item', admin_item_path(item),method: :delete, class:"btn btn-lg btn-danger" %>
       <%= link_to 'Go back', admin_path, class:"btn btn-lg btn-primary" %>

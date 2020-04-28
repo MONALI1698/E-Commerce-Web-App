@@ -35,10 +35,12 @@
             <h6 class="h6 pb-1"><i class="fas fa-desktop pr-1"></i> <%=it.category%> </h6>
           
     
-          <h4 class="h4 mb-4"> <%=it.name%> </h4>
+          <h4 class="h4 mb-4"><strong> <%=it.name%></strong> </h4>
     
           <p class="font-weight-normal"> Description: <%=it.description%> </p>
           <p class="font-weight-normal"><strong> Price: <%=it.price%> </strong></p>
+          <p class="font-weight-normal"><strong> Posted On: <%=it.created_at.strftime("%m/%d/%Y")%> </strong></p>
+          
     
          
           <%= link_to 'View', item_path(it), class:"btn btn-primary" %>
