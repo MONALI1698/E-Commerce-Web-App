@@ -124,7 +124,6 @@ class ItemsController < ApplicationController
     end
 
     def search()
-
         respond_to do |format|
             query = params[:id]
             items = Item.where("is_viewable = true and lower(name) like ? or lower(description) like ? ", "%#{params[:id]}%".downcase,  "%#{params[:id]}%".downcase).to_a
