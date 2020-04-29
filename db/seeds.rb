@@ -72,6 +72,7 @@ m1 = Message.create!(
     content: 'This is a test message',
     recipient: 'austinsmith845',
     sender: 'wsmith845',
+    is_new: true,
 )
 
 i1= Item.create!(

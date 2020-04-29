@@ -7,17 +7,18 @@
 
 
 <center>
-<div id = "refresh">
-    <div id= "messagebox">
+
+    <div id= "messagebox" class=scrollable>
         <p style="color:lightblue">
             <% messages.each do |m| %>
                 <%= "[" + m.sender + "]: " +  m.content %><br/>
+             
                       
             <% end %>
 
         </p>
     </div>
-</div>
+
 
 <div class = "footer">
     <%= form_with model: @message, url: message_board_path, method: :post, local: true, scope: :message do |m| %>
