@@ -1,4 +1,4 @@
-<%= link_to 'Add New Item', new_item_path, class:"btn btn-info but", style:"margin-top:10px" %>
+<%= link_to 'Add New Item', new_item_path, class:"btn btn-info but", style:"margin-top:10px" %><br><br>
 
 <% items.each do |it|%>
 
@@ -35,7 +35,8 @@
       <h4 class="h4 mb-4"> <%=it.name%> </h4>
 
       <p class="font-weight-normal"> Description: <%=it.description%> </p>
-      <p class="font-weight-normal"><strong> Price: <%=it.price%> </strong></p>
+      <p class="font-weight-normal"><strong> Price: <%=it.price%></strong>$</p>
+      <p class="font-weight-normal"><strong> Posted on:  <%=it.created_at.strftime("%m/%d/%Y")%> </strong></p>
 
       <% if it.creator == current_user %>
 

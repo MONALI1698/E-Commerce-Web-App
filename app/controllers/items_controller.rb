@@ -124,10 +124,9 @@ class ItemsController < ApplicationController
     end
 
     def search()
-
         respond_to do |format|
             query = params[:id]
-            items = Item.where("is_viewable = true and lower(name) like ? or lower(description) like ? ", "%#{params[:id]}%".downcase,  "%#{params[:id]}%".downcase).to_a
+            items = Item.where("is_viewable = true and lower(name) like ? or lower(description) like ? and created_at < ? ", "%#{params[:id]}%".downcase,  "%#{params[:id]}%".downcase,30.days.ago).to_a
             
             format.html do
                 if(!items.empty?)
@@ -145,7 +144,7 @@ class ItemsController < ApplicationController
 
         respond_to do |format|
             query = params[:id]
-            items = Item.where("is_viewable = true and lower(category) like ? ", "%#{params[:id]}%".downcase).to_a
+            items = Item.where("is_viewable = true and lower(category) like ? and created_at < ? ", "%#{params[:id]}%".downcase,30.days.ago).to_a
             
             format.html do
                 if(!items.empty?)

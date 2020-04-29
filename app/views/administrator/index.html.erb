@@ -33,6 +33,8 @@
                 
                 <h5 class=" mb-3"><b><i> <%=it.description%> </i></b></h5>
                 <h5 class=" mb-3"><b><i> Price: <%=it.price%></i></b></h5>
+                
+                 <h5 class=" mb-3"><b><i> Posted On: <%=it.created_at.strftime("%m/%d/%Y")%></i></b></h5>
                     
                     
                     <%= link_to 'View Item', admin_item_path(it), class:"btn btn-primary" %>

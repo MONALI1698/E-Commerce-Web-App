@@ -1,4 +1,7 @@
-<h2> Edit Item </h2>
+<div style="background-color:lightgreen; margin-top:15px; margin-bottom:25px">
+<center><i><h2 style="color:black"><b>Edit Item </b></h2></i>
+</center>
+</div>
 
 <%= form_with model: item, url: item_path, method: :patch, local: true, scope: :item do |f| %>
 <div class ="form-group">
@@ -11,12 +14,13 @@
     <%= f.text_field :description,class: "form-control" %>
 </div>
 
-<div class ="form-group">
+<div class ="form-group" style="color:white">
 
     <%= f.label "Select a Category:", class: "col-md-4 control-label", style: "color:white;" %> <br>
 
     <%= f.select :category, options_for_select(Item.categories), class: "col-md-4 control-label", style: "color:white;" %>
 </div>
+
 
 <div class ="form-group">
     <%= f.label :item_price, "Item Price:",class: "col-md-4 control-label", style: "color:white;" %><br>
@@ -25,14 +29,17 @@
 
 <div class= "form-group">
 <%= f.label:item_image, "Upload Image/Video:", class:"col-md-4 control-label", style: "color:white;"%>
-<%= f.file_field :file, class:"form-control", direct_upload: true%>
 
+<%= f.file_field :file, class:"form-control", direct_upload: true%>
+</div><br>
  
+
 <div class = "form-group">
     <%= f.check_box :is_viewable %>  <label style="color:white">Viewable to buyers</label><br>
 
 
 </div>
+
 <%= f.submit "Update Item", class:"btn btn-primary" %>
 
 
