@@ -36,6 +36,8 @@
                 
                     <p class="font-weight-normal"> Description: <%=it.description%> </p>
                     <p class="font-weight-normal"><strong> Price: <%=it.price%> </strong></p>
+                    <p class="font-weight-normal"><strong> Posted On: <%=it.created_at.strftime("%m/%d/%Y")%> </strong></p>
+                   
                     
                     
                     <%= link_to 'View', admin_item_path(it), class:"btn btn-primary" %>
