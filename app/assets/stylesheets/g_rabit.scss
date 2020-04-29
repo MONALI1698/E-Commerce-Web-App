@@ -29,12 +29,30 @@ $blue: blue;
   
 }
 
+.item > .navbar-nav > .nav-item > .Onav-link{
+
+    font-size: 18px;
+    color: orange;
+    font-weight: bold;
+    padding-top: 8px;
+    position: absolute;
+  
+  
+  
+
+}
 .item > .navbar-nav > .nav-item > .nav-link{
   font-size: 18px;
   color: grey;
   font-weight: bold;
 
 }
+
+.list-group-item.message
+{
+  background-color: orange;
+}
+
 p {
     color: black;
     font-family: courier;
@@ -88,5 +106,6 @@ p {
     float: center;
     box-sizing: border-box;
     
-   
   }
+
+  

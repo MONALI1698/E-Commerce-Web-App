@@ -33,7 +33,16 @@
             location.replace(window.location.origin + "/items/search_results/"+ search);
         }
 
+   
+
 }
+
+    function gotMail()
+    {
+        var messagesTab = document.getElementById("messages");
+        messagesTab.className="Onav-link";
+       
+    }
 </script>
 
 <nav class="navbar navbar-expand-lg navbar-dark menu" style="background-color:transparent">
@@ -67,7 +76,7 @@
       <% end %>
       <%if user_signed_in? && !current_user.is_admin%>
       <li class="nav-item">
-        <a class="nav-link " href="/messages">Messages</a>
+        <a class="nav-link" id="messages" href="/messages">Messages</a>
        
       </li>
         <% end %>
@@ -98,11 +107,20 @@
   </div>
 </nav>
 
+<% if user_signed_in? %>
+  <% messages = current_user.messages %>
+    <% messages.each do |m| %>
+      <% if m.is_new %>
+      
+        <%= javascript_tag "gotMail()" %>
+     
+      <% end %>
+    <% end %>
 
+<% end %>
+  
 
-  <body>
-
-
+<body>
   <%if flash.key?(:error) %>
   <div class="alert alert-danger" role = "alert"
    <center><%= flash[:error] %></center>

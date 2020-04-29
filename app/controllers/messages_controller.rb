@@ -22,7 +22,8 @@ class MessagesController < ApplicationController
         messages = []
         all_messg.each do |m|
             if( (m.sender == params[:id] && m.recipient == signed_in_user.user_name) || (m.recipient == params[:id] && m.sender == signed_in_user.user_name))
-
+                m.is_new = false;
+                m.save!
                 messages.push(m)
             end
         end
@@ -36,10 +37,12 @@ class MessagesController < ApplicationController
 
     def send_message()
         message = Message.new(params.require(:message).permit(:content, :sender, :recipient))
+        message.is_new = true;
         message.user_id = User.find_by_user_name(params[:id]).id
         message.save!
 
         message = Message.new(params.require(:message).permit(:content, :sender, :recipient))
+        message.is_new = false
         message.user_id = current_user.id
         message.save!
 
