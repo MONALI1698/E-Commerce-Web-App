@@ -37,6 +37,10 @@
 
 }
 
+   function menu_toggle(){
+     $('div.collapse.navbar-collapse.item').toggle();
+   }
+
     function gotMail()
     {
         var messagesTab = document.getElementById("messages");
@@ -48,7 +52,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark menu" style="background-color:transparent">
   <a class="navbar-brand" href="/home">gRabit </a>
  
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" onclick="menu_toggle()">
     <span class="navbar-toggler-icon"></span>
   </button>
 
