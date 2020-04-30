@@ -45,67 +45,102 @@
     }
 </script>
 
-<nav class="navbar navbar-expand-lg navbar-dark menu" style="background-color:transparent">
-  <a class="navbar-brand" href="/home">gRabit </a>
- 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse item">
-    <ul class="navbar-nav mr-auto">
-      
-    <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Categories
-    </a>
-    <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:lightgrey">
-        
-      <% Item.categories.each do |cat| %>
-        <b><%= submit_tag cat, :id=> cat,  :class=> "dropdown-item", :onClick=> "searchByCategory()" %>
-        </b>
-        <%end%>
-  </li>
-      <li class="nav-item">
-        <a class="nav-link " href="/user_profile">User Profile</a>
-      </li>
-      <%if user_signed_in? && current_user.is_seller%>
-      <li class="nav-item">
-        <a class="nav-link " href="/items">List Item</a>
-      </li>
-      <% end %>
-      <%if user_signed_in? && !current_user.is_admin%>
-      <li class="nav-item">
-        <a class="nav-link" id="messages" href="/messages">Messages</a>
-       
-      </li>
-        <% end %>
-    </ul>
-     <div class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" id= "nav_search_text" placeholder="Search" aria-label="Search" onKeyPress= "navEnterKeyPress(event)" />
-      <a  onClick= "navSearchForItem()" href=""> 🔎</a>
-    </div>
-     
-     <ul class="nav navbar-nav navbar-right">
-        <% if user_signed_in? %>
-    <li class="nav-item">
-      <%= link_to "Hi, #{current_user.name}", edit_user_registration_path, class: 'nav-link' %>
-    </li>
-    <li class="nav-item">
-      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-    </li>
-  <% else %>
-    <li class="nav-item">
-      <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
-    </li>
-    <li class="nav-item">
-      <%= link_to 'Sign Up', new_user_registration_path, class: 'nav-link' %>
-    </li>
-  <% end %>
+<header class="header shop">
+		<!-- Topbar -->
+		<div class="topbar">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-12 col-12">
+						<!-- Top Left -->
+						<div class="top-left">
+							<ul class="list-main">
+								<li><i class="ti-headphone-alt"></i> +060 (800) 801-582</li>
+								<li><i class="ti-email"></i> contact@grabit.com</li>
+							</ul>
+						</div>
+						<!--/ End Top Left -->
+					</div>
+					<div class="col-lg-8 col-md-12 col-12">
+						<!-- Top Right -->
+						<div class="right-content">
+							<ul class="list-main">
+               <% if user_signed_in? %>
+                   <li> <%= link_to "Hi, #{current_user.name}", edit_user_registration_path %></li>
+                   <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+                <% else %>
+                    <li><%= link_to 'Sign In', new_user_session_path%></li>
+                    <li><%= link_to 'Sign Up', new_user_registration_path %> </li>
+                <% end %>
+							</ul>
+						</div>
+						<!-- End Top Right -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Topbar -->
+		<div class="middle-inner">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-2 col-md-2 col-12">
+						<!-- Logo -->
+						<div class="logo">
+							<a href="/home">gRabit</a>
+						</div>
+					
+					</div>
+					<div class="col-lg-8 col-md-7 col-12">
+							<div class="search-bar">
+									<input aria-label="Search" required="required" class="header_search_input" type="text" id= "nav_search_text" placeholder="Search for products..." onKeyPress= "navEnterKeyPress(event)">
+                  <button type="submit" class="btnn" onClick= "navSearchForItem()"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918770/search.png" alt=""></button>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="header-inner">
+			<div class="container">
+				<div class="cat-nav-head">
+					<div class="row"> 
+						<div class="col-lg-9 col-12">
+							<div class="menu-area">
+								<nav class="navbar navbar-expand-lg">
+									<div class="navbar-collapse">	
+										<div class="nav-inner">	
+											<ul class="nav main-menu menu navbar-nav">
+													<li class="active"><a href="/home">Home</a></li>												
+													<li><a href="#">Categories</a>
+														<ul class="dropdown">
+															<li>
+                               <% Item.categories.each do |cat| %>
+                                  <b><%= submit_tag cat, :id=> cat,  :class=> "dropdown-item", :onClick=> "searchByCategory()" %></b>
+                               <%end%>
+                              </li>
+														</ul>
+													</li>	
+                         <%if user_signed_in?%>
+                          <li><a href="/user_profile">User Profile</a></li>
+                          <%end%>
+                           <%if user_signed_in? && current_user.is_seller%>
+                                <li><a href="/items">List Item</a> </li>
+                            <% end %>
+                            <%if user_signed_in? && !current_user.is_admin%>
+                            <li><a id="messages" href="/messages">Messages</a></li>
+                            <% end %>	
+													<li><a href="contact.html">Contact Us</a></li>
+												</ul>
+										</div>
+									</div>
+								</nav>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
     
-    </ul>
-  </div>
-</nav>
+	</header>
 
 <% if user_signed_in? %>
   <% messages = current_user.messages %>
