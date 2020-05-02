@@ -8,6 +8,7 @@ $blue: blue;
 
 .navbar {
         margin-bottom: 0;
+        background-color:black;
        
 }
 
@@ -71,7 +72,9 @@ p {
 
   body {
     text-align: center;
-    background-image: image-url("/assets/black.jpg");
+    // background-image: image-url("/assets/black.jpg");
+    background-color: #9e8fb2;
+    background-image: linear-gradient(to right, #9e8fb2 0%, #a7acd9 74%);
     background-repeat: reverse repeat;
     background-size: cover;
   }
