@@ -24,7 +24,7 @@
 						<h3 class="product-title"> <%=item.name%> </h3>
 						<p class="product-description"> <%=item.description%> </p>
             <h4>Category: <span> <%=item.category%> </span></h4>
-						<h4>Price: <span>  <%= '$%.2f' % item.price%> </span></h4>
+						<h4>Price: <span>  <%= item.price%> </span></h4>
 						<h4>Posted on: <span><%=item.created_at.strftime("%m/%d/%Y")%></span>
 						<br/>
 						<br/>
@@ -49,5 +49,5 @@
 		</div>
 	</div>
 	<br>
-	<b><center><%= link_to "Back", items_path, class:"btn btn-success btn-lg" %></b>
+	<b><center><%= link_to "Back", user_profile_path, class:"btn btn-success btn-lg" %></b>
     </center>

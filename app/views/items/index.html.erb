@@ -1,20 +1,24 @@
-<%= link_to 'Add New Item', new_item_path, class:"btn btn-info but", style:"margin-top:10px" %><br><br>
-<div class="container mydiv">
-    <div class="row">
+<br>
+<%= link_to 'Add New Item', new_item_path, class:"btn btn-success but", style:"margin-top:10px" %><br><br>
+<div class="container mydiv" >
+
+    <div class="row" >
 	<% items.each do |it|%>
-        <div class="col-md-4">
+        <div class="col-md-4" style="margin-bottom:15px">
             <!-- bbb_deals -->
-            <div class="bbb_deals">
+            <div class="bbb_deals" style="height:100%">
                 <div class="bbb_deals_slider_container">
                     <div class=" bbb_deals_item">
-                        <div class="bbb_deals_image">
+                        <div class="bbb_deals_image" style="height:200px">
                         <% if it.file.attached?%>
                             <% if it.file.image?%>
                                 <%= image_tag url_for(it.file.variant(resize: '300x400'))%>
                             <% else %>
                                  <%= video_tag url_for(it.file), style:'width:100%; height:auto', controls: ''%>
                             <% end %>
-                        <% end %>
+                        <% else %>
+                        <img src="/assets/insert.jpg" style="height:200px" />
+                        <%end%>
                         </div>
                         <div class="bbb_deals_content">
                             <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
