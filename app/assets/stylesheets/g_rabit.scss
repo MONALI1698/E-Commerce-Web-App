@@ -31,17 +31,11 @@ $blue: blue;
 }
 
 .item > .navbar-nav > .nav-item > .nav-link.message{
-
- 
     color: orange;
-    
-  
-  
-
 }
 .item > .navbar-nav > .nav-item > .nav-link{
   font-size: 18px;
-  color: grey;
+  color: lightgrey;
   font-weight: bold;
 
 }
@@ -72,9 +66,11 @@ p {
 
   body {
     text-align: center;
-    background-image: image-url("/assets/bg-01.jpg");
+    background-image: image-url("/assets/black.jpg");
     // background-color: #9e8fb2;
     // background-image: linear-gradient(to right, #9e8fb2 0%, #a7acd9 74%);
+    background-position: center center;
+    background-attachment: fixed;
     background-repeat: reverse repeat;
     background-size: cover;
   }
