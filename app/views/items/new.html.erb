@@ -7,12 +7,12 @@
 <%= form_with model: item, url: items_path, method: :post, local: true, scope: :item do |f| %>
 
 <div class ="form-group">
-    <%= f.label :item_name, "Item Name:",class: "col-md-4 control-label", style: "color:black;" %><br>
+    <%= f.label :item_name, "Item Name:",class: "col-md-4 control-label", style: "color:white;" %><br>
     <%= f.text_field :name,class: "form-control" %>
 </div>
 
 <div class ="form-group">
-    <%= f.label :item_description, "Item Description:",class: "col-md-4 control-label", style: "color:black;" %><br>
+    <%= f.label :item_description, "Item Description:",class: "col-md-4 control-label", style: "color:white;" %><br>
     <%= f.text_field :description,class: "form-control" %>
 </div>
 
@@ -20,7 +20,7 @@
     
 
 
-<div class ="form-group" style="color:black">
+<div class ="form-group" style="color:white">
 
 
     <%= f.label "Select a Category:", class: "col-md-4 control-label" %><br> 
@@ -29,7 +29,7 @@
 
 
 <div class ="form-group">
-    <%= f.label :item_price, "Item Price:",class: "col-md-4 control-label", style: "color:black;" %><br>
+    <%= f.label :item_price, "Item Price:",class: "col-md-4 control-label", style: "color:white;" %><br>
 
     <%= f.text_field :price,class: "form-control" %>
 </div>
@@ -37,7 +37,7 @@
 
 
 <div class= "form-group">
-<%= f.label:item_image, "Upload Image/Video:", class:"col-md-4 control-label", style: "color:black;" %>
+<%= f.label:item_image, "Upload Image/Video:", class:"col-md-4 control-label", style: "color:white;" %>
 <%= f.file_field :file, class:"form-control", direct_upload: true%>
 
 <div class = "form-group">
