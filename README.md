@@ -1,7 +1,7 @@
-# gRabit Project App 
+# gRabit - an Online Marketplace
 
 - This project contains a basic Rails app skeleton.
-- This file has instructions needed for this Project App to run.
+- This file has instructions needed for this web App to run.
 
 ## Getting Started
 
